@@ -5,7 +5,7 @@ export default function Contact() {
     <section
       aria-labelledby="contact"
       className="contact">
-      <h2 id="contact">Let's talk</h2>
+      <h2 id="contact">Let&apos;s talk</h2>
       <div className="contact-body">
         <p>Have a question or want to work together?</p>
         <a

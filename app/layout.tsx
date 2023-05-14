@@ -4,6 +4,7 @@ import './normalize.css';
 import GTMWrapper from './GTM';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://haanna.com'),
   title: 'Ha Anna | Portfolio',
   description:
     'Ha Anna, front-end designer & developer based in Seoul, South Korea. I focus on designing beautiful and functional user experiences.',

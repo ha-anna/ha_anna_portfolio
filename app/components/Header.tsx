@@ -33,8 +33,8 @@ export default function Header() {
           alt="Ha Anna"
           src="/res/logowebsm.webp"
           className="logo"
-          width={100}
-          height={100}
+          width={50}
+          height={46}
         />
       </a>
 
