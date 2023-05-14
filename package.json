@@ -1,0 +1,29 @@
+{
+  "name": "ha_anna_portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "20.1.4",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.2",
+    "nanoid": "^4.0.2",
+    "next": "13.4.2",
+    "react": "18.2.0",
+    "react-animated-cursor": "^2.6.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "18.2.0",
+    "react-gtm-module": "^2.0.11",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/react-gtm-module": "^2.0.1"
+  }
+}
