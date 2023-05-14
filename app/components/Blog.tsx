@@ -3,7 +3,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 
 export default function Blog() {
-  const [posts, setPosts] = React.useState({});
+  const [posts, setPosts] = React.useState([]);
 
   const blogQuery = `query {
     user(username: "ha-anna"){
@@ -20,7 +20,7 @@ export default function Blog() {
   `;
 
   React.useEffect(() => {
-    async function gql(query) {
+    async function gql(query: String) {
       const response = await fetch('https://api.hashnode.com/', {
         method: 'POST',
         headers: {
@@ -29,38 +29,64 @@ export default function Blog() {
         body: JSON.stringify({ query }),
       });
       const data = await response.json();
-      setPosts(data.data.user.publication.posts);
+      setPosts(data.data.user.publication.posts.slice(0, 2));
     }
     gql(blogQuery);
   }, [blogQuery]);
 
-  // const postsHtml = posts.map(post => {
-  //   const divImg = {
-  //     backgroundImage: `url(${post.coverImage})`
-  //   }
+  interface Post {
+    slug: string;
+    title: string;
+    brief: string;
+    coverImage: string;
+  }
 
-  //   return (
-  //     <div className="card" key={nanoid()}>
-  //       <div className="card-img" style={divImg}>
-  //       </div>
-  //       <div className="card-body">
-  //         <h3 className="card-title">{post.title}</h3>
-  //         <p className="card-text">{post.brief}</p>
-  //         <div className="card-buttons">
-  //           <a href={`https://haanna.hashnode.dev/${post.slug}`} target="_blank" className="btn read-btn" rel="noreferrer">Read Now</a>
-  //         </div>
-  //       </div>
-  //     </div>
+  const postsHtml = posts.map((post: Post) => {
+    const divImg = {
+      backgroundImage: `url(${post.coverImage})`,
+    };
 
-  //   )
-  // })
+    return (
+      <div
+        className="card"
+        key={nanoid()}>
+        <div
+          className="card-img"
+          style={divImg}></div>
+        <div className="card-body">
+          <h3 className="card-title">{post.title}</h3>
+          <p className="card-text">{post.brief}</p>
+          <div className="card-buttons">
+            <a
+              href={`https://blog.haanna.com/${post.slug}`}
+              target="_blank"
+              className="btn read-btn"
+              rel="noreferrer">
+              Read Now
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <section
       aria-labelledby="blog"
       className="blog">
       <h2 id="blog">Blog</h2>
-      <div className="cards">{/* {postsHtml} */}</div>
+      <div className="cards">
+        {postsHtml}
+      </div>
+      <div className="blog-button">
+        <a
+          href={`https://blog.haanna.com/`}
+          target="_blank"
+          className="btn read-btn"
+          rel="noreferrer">
+          Got to blog.haanna.com
+        </a>
+      </div>
     </section>
   );
-}
+};

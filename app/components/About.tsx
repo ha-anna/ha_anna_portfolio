@@ -19,13 +19,22 @@ export default function About() {
           <h3 className="name">Ha Anna</h3>
           <p>Seoul, South Korea</p>
           <p>anna@haanna.com</p>
-          <a
-            href="https://cv.haanna.com"
-            target="_blank"
-            className="btn"
-            rel="noreferrer">
-            View My CV
-          </a>
+          <div className="about-links">
+            <a
+              href="https://cv.haanna.com"
+              target="_blank"
+              className="btn"
+              rel="noreferrer">
+              My CV
+            </a>
+            <a
+              href="https://blog.haanna.com"
+              target="_blank"
+              className="btn"
+              rel="noreferrer">
+              My Blog
+            </a>
+          </div>
         </div>
 
         <div className="about-more">
