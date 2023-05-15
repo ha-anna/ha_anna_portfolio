@@ -1,5 +1,5 @@
-import '../app/global.css'
-import Nav from '../app/components/Nav'
+import '../app/global.css';
+import Nav from '../app/components/Nav';
 
 export default function Custom404() {
   return (
@@ -12,4 +12,4 @@ export default function Custom404() {
       </div>
     </main>
   );
-}
+};
