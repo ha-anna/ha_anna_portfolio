@@ -1,10 +1,15 @@
 'use client';
 import Image from 'next/image';
-import React from 'react';
-import { isMobile } from 'react-device-detect';
+import React, { useState, useEffect } from 'react';
 import Nav from './Nav'
 
 export default function Header() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent;
+    setIsMobile(/Mobi|Android/i.test(userAgent));
+  }, []);
 
   const isHeader = () => {
     if (isMobile) {
