@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import './global.css';
 import './normalize.css';
+import './global.css';
 import GTMWrapper from './GTM';
 
 export const metadata: Metadata = {
@@ -33,7 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GTMWrapper />
-      <body>{children}</body>
+      <body>
+        <h1 className="sr-only">Ha Anna&apos;s Portfolio</h1>
+        {children}
+      </body>
     </html>
   );
 }
