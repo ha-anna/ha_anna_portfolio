@@ -1,12 +1,10 @@
 import React from 'react';
 import projectData from '../data/projectData';
 import { nanoid } from 'nanoid';
+import DeferredImage from './DeferredImage'
 
 export default function Projects() {
   const projects = projectData.map((project) => {
-    const divImg = {
-      backgroundImage: `url(${project.img})`,
-    };
 
     const techStack = project.techStack.map((tech) => {
       return (
@@ -22,9 +20,8 @@ export default function Projects() {
       <div
         className="card"
         key={nanoid()}>
-        <div
-          className="card-img"
-          style={divImg}></div>
+        <DeferredImage
+          imageUrl={project.img} alt=""/>
         <div className="card-body">
           <h3 className="card-title">{project.title}</h3>
           <div className="tech-stack">{techStack}</div>
