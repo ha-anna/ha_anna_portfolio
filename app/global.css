@@ -1,3 +1,4 @@
+/* Cache-Control: max-age=31536000 */
 @font-face {
   font-family: 'Adder';
   src: url("../public/res/font/Adder.woff") format('woff');
@@ -6,6 +7,7 @@
   font-display: swap;
 }
 
+/* Cache-Control: max-age=31536000 */
 @font-face {
   font-family: 'Adder Extended';
   src: url("../public/res/font/Adder\ Extended.woff") format('woff');
@@ -15,6 +17,7 @@
   font-display: swap;
 }
 
+/* Cache-Control: max-age=31536000 */
 @font-face {
   font-family: 'Adder Super Extended';
   src: url("../public/res/font/Adder\ SuperExtended.woff") format('woff');
@@ -62,6 +65,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
@@ -509,7 +513,7 @@ header {
   max-width: 100%;
   height: 200px;
   background-size: cover;
-  background-position: center;
+  background-position: center left;
   background-repeat: no-repeat;
   object-fit: cover;
   border-bottom: 3px solid var(--black);
@@ -643,6 +647,7 @@ header {
 
 .small {
   margin-bottom: 30px;
+  font-family:'IBM Plex Mono', monospace;
 }
 
 /* error */

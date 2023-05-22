@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { nanoid } from 'nanoid';
+import DeferredImage from './DeferredImage'
 
 export default function Blog() {
   const [posts, setPosts] = React.useState([]);
@@ -42,17 +43,12 @@ export default function Blog() {
   }
 
   const postsHtml = posts.map((post: Post) => {
-    const divImg = {
-      backgroundImage: `url(${post.coverImage})`,
-    };
-
     return (
       <div
         className="card"
         key={nanoid()}>
-        <div
-          className="card-img"
-          style={divImg}></div>
+        <DeferredImage
+          imageUrl={post.coverImage} alt=""/>
         <div className="card-body">
           <h3 className="card-title">{post.title}</h3>
           <p className="card-text">{post.brief}</p>
@@ -75,9 +71,7 @@ export default function Blog() {
       aria-labelledby="blog"
       className="blog">
       <h2 id="blog">Blog</h2>
-      <div className="cards">
-        {postsHtml}
-      </div>
+      <div className="cards">{postsHtml}</div>
       <div className="blog-button">
         <a
           href={`https://blog.haanna.com/`}
@@ -89,4 +83,4 @@ export default function Blog() {
       </div>
     </section>
   );
-};
+}
