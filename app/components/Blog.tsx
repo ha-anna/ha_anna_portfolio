@@ -1,63 +1,75 @@
 'use client';
 import React from 'react';
 import { nanoid } from 'nanoid';
-import DeferredImage from './DeferredImage'
+import DeferredImage from './DeferredImage';
 
 export default function Blog() {
   const [posts, setPosts] = React.useState([]);
 
-  const blogQuery = `query {
-    user(username: "ha-anna"){
-      publication{
-        posts(page: 0){
-          slug
-          title
-          brief
-          coverImage
+  const blogQuery = `query Publication{
+    publication(host: "haanna.hashnode.dev"){
+        posts(first: 10) {
+          edges {
+            node {
+              title
+              brief
+              coverImage {
+              url }
+              url
+            }
+          }
         }
       }
     }
-  }
   `;
 
   React.useEffect(() => {
+    const token = process.env.HASHNODE_TOKEN;
     async function gql(query: String) {
-      const response = await fetch('https://api.hashnode.com/', {
+      const response = await fetch('https://gql.hashnode.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `${token}`,
         },
         body: JSON.stringify({ query }),
       });
       const data = await response.json();
-      setPosts(data.data.user.publication.posts.slice(0, 2));
+      setPosts(data.data.publication.posts.edges.slice(0, 2));
     }
     gql(blogQuery);
   }, [blogQuery]);
 
   interface Post {
-    slug: string;
-    title: string;
-    brief: string;
-    coverImage: string;
+    node: {
+      url: string;
+      title: string;
+      brief: string;
+      coverImage: {
+        url: string;
+      };
+    };
   }
 
   const postsHtml = posts.map((post: Post) => {
+    // console.log(post);
     return (
       <div
-        className="card"
+        className='card'
         key={nanoid()}>
         <DeferredImage
-          imageUrl={post.coverImage} alt=""/>
-        <div className="card-body">
-          <h3 className="card-title">{post.title}</h3>
-          <p className="card-text">{post.brief}</p>
-          <div className="card-buttons">
+          imageUrl={post.node.coverImage.url}
+          alt=''
+        />
+        <div className='card-body'>
+          <h3 className='card-title'>{post.node.title}</h3>
+          <p className='card-text'>{post.node.brief}</p>
+          <div className='card-buttons'>
             <a
-              href={`https://blog.haanna.com/${post.slug}`}
-              target="_blank"
-              className="btn read-btn"
-              rel="noreferrer">
+              href={`https://blog.haanna.com/${post.node.url}`}
+              target='_blank'
+              className='btn read-btn'
+              rel='noreferrer'>
               Read Now
             </a>
           </div>
@@ -68,16 +80,16 @@ export default function Blog() {
 
   return (
     <section
-      aria-labelledby="blog"
-      className="blog">
-      <h2 id="blog">Blog</h2>
-      <div className="cards">{postsHtml}</div>
-      <div className="blog-button">
+      aria-labelledby='blog'
+      className='blog'>
+      <h2 id='blog'>Blog</h2>
+      <div className='cards'>{postsHtml}</div>
+      <div className='blog-button'>
         <a
           href={`https://blog.haanna.com/`}
-          target="_blank"
-          className="btn read-btn"
-          rel="noreferrer">
+          target='_blank'
+          className='btn read-btn'
+          rel='noreferrer'>
           Got to blog.haanna.com
         </a>
       </div>
