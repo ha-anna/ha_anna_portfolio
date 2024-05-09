@@ -596,7 +596,6 @@ header {
 /* contact */
 
 .contact {
-  height: 50vh;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -612,18 +611,31 @@ header {
   box-shadow: 1px 1px 0px 1px var(--black);
   border-radius: 1px;
   background: white;
-  max-height: 250px;
-  height: 100%;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-evenly;
   padding: 40px 40px 20px 40px;
 }
 
-.contact-body > .btn {
-  margin-top: 40px;
+.contact-form > .btn {
+  margin-top: 20px;
   margin-left: auto;
-  margin-right: auto;
+}
+
+.contact-form {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.contact-input {
+  width: 100%;
+  border: 3px solid var(--black);
+  box-shadow: 1px 1px 0px 1px var(--black);
+  border-radius: 1px;
+  background: white;
+  margin: 10px 0;
+  padding: 10px;
 }
 
 /* footer */
