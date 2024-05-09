@@ -1,5 +1,14 @@
 const projectData = [
   {
+    title: 'Artemis',
+    techStack: ['Next.js', 'TypeScript', 'TailwindCSS', , 'Node.js', 'MongoDB'],
+    img: '/res/projects/project_artemis.webp',
+    description:
+      'WIP. A crowd-sourced web application aimed at assisting stray animals and reducing their number on the streets. Started as a collaboration project, nowdays I am working on finishing it on my own.',
+    link: 'https://artemis--app.vercel.app/',
+    repo: 'https://github.com/ha-anna/artemis',
+  },
+  {
     title: "Ha Youjun's Portfolio",
     techStack: ['React', 'CSS', 'React Router'],
     img: '/res/projects/project_hyj_portfolio.webp',
@@ -16,15 +25,6 @@ const projectData = [
       'Quizzical is a single-page application that uses the Open Trivia Database API to fetch and render ten questions, with four possible answers each. The user can choose the question set from various categories (General Knowledge, Entertainment, Science, Animals, etc.) and difficulty levels (mix, easy, medium, difficult). At the end of the quiz, answers are checked, correct and wrong answers are displayed, and the points are counted.',
     link: 'https://react-quizzical.vercel.app/',
     repo: 'https://github.com/ha-anna/ha-anna.github.io/tree/main/Scrimba_Projects/react_quizzical',
-  },
-  {
-    title: 'CV page',
-    techStack: ['React', 'CSS'],
-    img: '/res/projects/project_cv.webp',
-    description:
-      'CV page is a personal project made to practice using React and because I needed a space where I can display my CV to possible clients and recruiters. It displays two versions of the CV in English and Korean and allows the user to download it whenever necessary.',
-    link: 'https://ha-anna-cv.vercel.app/',
-    repo: 'https://github.com/ha-anna/ha_anna_cv',
   },
   {
     title: 'Movie Watchlist',
