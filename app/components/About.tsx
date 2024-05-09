@@ -56,7 +56,7 @@ export default function About() {
             </a>
             , learning Korean Sign Language and working on{' '}
             <a
-              href='https://www.artemis--app.vercel.app'
+              href='https://artemis--app.vercel.app/'
               className='text-link'
               rel='noreferrer'
               target='_blank'>
