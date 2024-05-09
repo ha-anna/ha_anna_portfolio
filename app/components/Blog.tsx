@@ -15,7 +15,7 @@ export default function Blog() {
               brief
               coverImage {
               url }
-              url
+              slug
             }
           }
         }
@@ -42,7 +42,7 @@ export default function Blog() {
 
   interface Post {
     node: {
-      url: string;
+      slug: string;
       title: string;
       brief: string;
       coverImage: {
@@ -52,7 +52,6 @@ export default function Blog() {
   }
 
   const postsHtml = posts.map((post: Post) => {
-    // console.log(post);
     return (
       <div
         className='card'
@@ -66,7 +65,7 @@ export default function Blog() {
           <p className='card-text'>{post.node.brief}</p>
           <div className='card-buttons'>
             <a
-              href={`https://blog.haanna.com/${post.node.url}`}
+              href={`https://blog.haanna.com/${post.node.slug}`}
               target='_blank'
               className='btn read-btn'
               rel='noreferrer'>
