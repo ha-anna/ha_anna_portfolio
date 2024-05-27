@@ -21,11 +21,11 @@ export default function About() {
           <p>anna@haanna.com</p>
           <div className='about-links'>
             <a
-              href='https://docs.google.com/document/d/1FuQ-xwNVvDLfEnKJcHCasAeFA_HnWCUb/edit?usp=sharing&ouid=117386978000245646872&rtpof=true&sd=true'
+              href='https://www.linkedin.com/in/ha-anna/'
               target='_blank'
               className='btn'
               rel='noreferrer'>
-              My CV
+              LinkedIn
             </a>
             <a
               href='https://blog.haanna.com'
